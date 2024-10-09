@@ -1,8 +1,14 @@
 #pragma once
 
+// STL Libraries
+
+//----------------------------------
 
 // FOR USE BY EXTERNAL APPLICATION
 #include "Ruby/application.h"
+//----------------------------------
 
-//----------ENTRY POINT----------
+
+//----------ENTRY POINT-------------
 #include"Ruby/EntryPoint.h"
+//----------------------------------

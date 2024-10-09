@@ -1,0 +1,3 @@
+[submodule "ThirdParty/spdlog"]
+	path = RubyEngine/ThirdParty/spdlog
+	url = https://github.com/gabime/spdlog.git
