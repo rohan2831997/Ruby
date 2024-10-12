@@ -10,3 +10,5 @@
    #error RUBY Only Supports Windows!
 #endif // R_WINDOWS_PLATFORM
 
+#define BIT(x) 1<<x
+
