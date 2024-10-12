@@ -1,7 +1,10 @@
 # Directories
 .vs/
 bin/
-int/
+bin-int/
 
 # Files
 *.user
+*.vxcproj
+*.vxcproj.filters
+*.sln
