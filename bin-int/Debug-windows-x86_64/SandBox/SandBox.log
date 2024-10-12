@@ -1,9 +1,0 @@
-﻿  SandBox_App.cpp
-D:\RubyEngine\RubyEngine\src\Ruby\Log.h(19,42): warning C4251: 'Ruby::Log::CoreLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Ruby::Log'
-D:\RubyEngine\RubyEngine\ThirdParty\spdlog\include\spdlog\details\registry.h(33,31): message : see declaration of 'std::shared_ptr<spdlog::logger>'
-D:\RubyEngine\RubyEngine\src\Ruby\Log.h(20,42): warning C4251: 'Ruby::Log::ClientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Ruby::Log'
-D:\RubyEngine\RubyEngine\ThirdParty\spdlog\include\spdlog\details\registry.h(33,31): message : see declaration of 'std::shared_ptr<spdlog::logger>'
-  SandBox.vcxproj -> D:\RubyEngine\bin\Debug-windows-x86_64\SandBox\SandBox.exe
-  File cannot be copied onto itself
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: The command "IF EXIST ..\bin\Debug-windows-x86_64\SandBox\SandBox.exe\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\SandBox\SandBox.exe ..\bin\Debug-windows-x86_64\SandBox > nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\SandBox\SandBox.exe ..\bin\Debug-windows-x86_64\SandBox > nul)
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(166,5): error MSB3073: :VCEnd" exited with code 4.
