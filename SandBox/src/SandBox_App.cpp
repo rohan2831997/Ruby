@@ -1,3 +1,4 @@
+#pragma once
 #include "ruby.h"
 
 class SandBox : public Ruby::Application 

@@ -1,4 +1,7 @@
+#pragma once
 #include "Application.h"
+
+
 
 namespace Ruby
 {
@@ -14,7 +17,7 @@ namespace Ruby
 	{
 		while (true)
 		{
-
+			//::Ruby::Log("ABC");
 		}
 	}
 }

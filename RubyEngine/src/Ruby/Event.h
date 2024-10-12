@@ -80,8 +80,6 @@ namespace Ruby
 
 
 
-
-
 	inline std::ostream& operator<<(std::stringstream& ss, const Event& E)
 	{
 		return ss << E.ToString();

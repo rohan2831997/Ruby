@@ -18,14 +18,6 @@ int main(int argc, char** argv)
 
 
 
-	if (E.ImplementsCategory(Ruby::EventApplication))
-		APP_LOG_ERROR(E.ToString());
-	
-
-	if (E.ImplementsCategory(Ruby::EventKeyboard))
-	{
-		RUBY_LOG_TRACE(E.ToString());
-	}
 
 	auto app = Ruby::CreateApplication();
 	app->Run();
