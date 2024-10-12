@@ -94,11 +94,6 @@ location "SandBox"
 		
 	}
 
-	postbuildcommands
-	{
-		("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/SandBox")
-	}
-
 	filter "configurations:Debug"
 	defines "R_DEBUG"
 	symbols "On"
