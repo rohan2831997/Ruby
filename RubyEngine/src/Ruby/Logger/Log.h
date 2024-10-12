@@ -5,6 +5,7 @@
 #include "core.h"
 #include "spdlog/spdlog.h"
 
+
 namespace Ruby
 {
 	class RUBY_API Log

@@ -26,7 +26,8 @@ project "RubyEngine"
 
 	includedirs
 	{
-		"%{prj.name}/ThirdParty/spdlog/include"
+		"%{prj.name}/ThirdParty/spdlog/include",
+		"%{prj.name}/src/Ruby"
 	}
 
 	filter "system:windows"

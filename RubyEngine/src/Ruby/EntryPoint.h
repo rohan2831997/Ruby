@@ -1,6 +1,6 @@
 #pragma once
 #include "Application.h"
-#include "Log.h"
+#include "Logger/Log.h"
 
 #ifdef R_WINDOWS_PLATFORM
 
