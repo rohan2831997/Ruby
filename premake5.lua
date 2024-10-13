@@ -18,6 +18,9 @@ project "RubyEngine"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "RubyPCH.h"
+	pchsource "RubyEngine/src/RubyPCH.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
@@ -26,8 +29,9 @@ project "RubyEngine"
 
 	includedirs
 	{
-		"%{prj.name}/ThirdParty/spdlog/include",
-		"%{prj.name}/src/Ruby"
+		"%{prj.name}/src",
+		"%{prj.name}/src/Ruby",
+		"%{prj.name}/ThirdParty/spdlog/include"
 	}
 
 	filter "system:windows"
@@ -78,7 +82,8 @@ location "SandBox"
 	{
 		"%{prj.name}/ThirdParty/spdlog/include",
 		"RubyEngine/ThirdParty/spdlog/include",
-		"RubyEngine/src"
+		"RubyEngine/src",
+		"RubyEngine"
 	}
 
 	links

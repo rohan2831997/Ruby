@@ -1,9 +1,6 @@
 #pragma once
-
+#include <RubyPCH.h>
 #include "core.h"
-#include <functional>
-#include <string>
-#include <sstream>
 
 // Currently all the events are blocking
 // So a better startergy to keep them in a bus
