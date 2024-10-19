@@ -10,6 +10,11 @@ workspace "Ruby"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+include "RubyEngine/ThirdParty/glfw"
+
+IncludeDirs = {}
+IncludeDirs["GLFW"] = "RubyEngine/ThirdParty/glfw/include"
+
 project "RubyEngine"
 	location "RubyEngine"
 	kind "SharedLib"
@@ -31,7 +36,14 @@ project "RubyEngine"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/src/Ruby",
-		"%{prj.name}/ThirdParty/spdlog/include"
+		"%{prj.name}/ThirdParty/spdlog/include",
+		"%{IncludeDirs.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -51,13 +63,13 @@ project "RubyEngine"
 	}
 
 	filter "configurations:Debug"
-	defines "R_DEBUG"
+	defines {"R_DEBUG","R_ENABLE_ASSERTS"}
 	symbols "On"
 	staticruntime "off"
 	runtime "Debug"
 
 	filter "configurations:Development"
-	defines "R_DEVELOPMENT"
+	defines {"R_DEVELOPMENT","R_ENABLE_ASSERTS"}
 	optimize "On"
 
 	filter "configurations:Distribution"
@@ -103,13 +115,13 @@ location "SandBox"
 	}
 
 	filter "configurations:Debug"
-	defines "R_DEBUG"
+	defines {"R_DEBUG","R_ENABLE_ASSERTS"}
 	symbols "On"
 	staticruntime "off"
 	runtime "Debug"
 
 	filter "configurations:Development"
-	defines "R_DEVELOPMENT"
+	defines {"R_DEVELOPMENT","R_ENABLE_ASSERTS"}
 	optimize "On"
 
 	filter "configurations:Distribution"

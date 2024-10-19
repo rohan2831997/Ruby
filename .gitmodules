@@ -1,3 +1,6 @@
 [submodule "ThirdParty/spdlog"]
 	path = RubyEngine/ThirdParty/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "RubyEngine/ThirdParty/glfw"]
+	path = RubyEngine/ThirdParty/glfw
+	url = https://github.com/rohan2831997/glfw.git

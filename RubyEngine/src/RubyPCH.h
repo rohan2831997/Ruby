@@ -12,3 +12,5 @@
 #ifdef R_WINDOWS_PLATFORM
 	#include <Windows.h>
 #endif
+
+#include "Logger/Log.h"
