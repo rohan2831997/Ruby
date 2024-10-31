@@ -2,6 +2,7 @@
 #include <RubyPCH.h>
 
 #include "core.h"
+#include "Event.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
 
@@ -21,6 +22,10 @@ namespace Ruby
 		static std::shared_ptr<spdlog::logger> ClientLogger;
 	};
 
+	inline std::ostream& operator<<(std::ostream& os, const Event& E)
+	{
+		return os << E.ToString();
+	}
 }
 
 #define RUBY_LOG_TRACE(...)		Ruby::Log::GetCoreLogger()->trace(__VA_ARGS__);

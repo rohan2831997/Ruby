@@ -2,10 +2,13 @@
 #include "RubyPCH.h"
 #include "Application.h"
 #include "Window.h"
+#include "Logger/Log.h"
 
 
 namespace Ruby
 {
+#define BIND_FUN(Name) std::bind(&Application::##Name, this, std::placeholders::_1)
+
 	Application::Application()
 	{
 		WindowProps _Props;
@@ -14,6 +17,8 @@ namespace Ruby
 		_Props.Title = "RUBY";
 
 		Window = std::unique_ptr<Ruby::Window> (Ruby::Window::Create(_Props));
+		Window->SetEventCallBack(BIND_FUN(OnRecieveEvent));
+
 	}
 
 	Application::~Application()
@@ -26,5 +31,10 @@ namespace Ruby
 		{
 			Window.get()->Update();
 		}
+	}
+	void Application::OnRecieveEvent(Event& _E)
+	{
+		RUBY_LOG_TRACE("{0}", _E.ToString());
+
 	}
 }

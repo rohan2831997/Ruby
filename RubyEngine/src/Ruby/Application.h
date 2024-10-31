@@ -19,6 +19,8 @@ namespace Ruby
 	private:
 		std::unique_ptr<Window> Window;
 
+		void OnRecieveEvent(Event& E);
+
 	};
 
 	//TO BE DEFINED ON CLIENT SIDE

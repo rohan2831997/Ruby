@@ -23,7 +23,7 @@ namespace Ruby
 		EventApplication = BIT(0),
 		EventInput = BIT(1),
 		EventKeyboard = BIT(2),
-		EventMouse = BIT(3)
+		EventMouse = BIT(3),
 	};
 
 #define EVENT_CLASS_TYPE(Type)	static EventType GetStaticType() { return EventType::##Type; }\
@@ -51,34 +51,11 @@ namespace Ruby
 
 	class EventDispatcher
 	{
-		friend class Event;
-		template<typename T>
-		using Eventfn = std::function<bool>(T&);
-
-	public:
-
-		template<typename T>
-		bool Dispatch(Eventfn<T>& fun)
+		void Dispatch(Event& E)
 		{
-			T* Temp = dynamic_cast<T*>(&_Event);
-			if (T == nullptr)
-			{
-				RUBY_LOG_WARN("Event is of the wrong class type, Dynamic Cast failed");
-				return false;
-			}
-
-			eEvent.bHandled = fun(*T);
-			return eEvent.bHandled;
-		};
-
-	protected:
-		Event& _Event;
+			
+		}
 	};
 
 
-
-	inline std::ostream& operator<<(std::stringstream& ss, const Event& E)
-	{
-		return ss << E.ToString();
-	}
 }

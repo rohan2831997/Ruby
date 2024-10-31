@@ -1,6 +1,8 @@
 #pragma once
 #include "RubyPCH.h"
 #include "WindowsWindow.h"
+#include "Events/MouseEvent.h"
+#include "Logger/Log.h"
 
 
 
@@ -23,6 +25,14 @@ Ruby::WindowsWindow::WindowsWindow(int&& _Width, int&& _Height, std::string&& _T
 	glfwMakeContextCurrent(gl_Window);
 	glfwSetWindowUserPointer(gl_Window, &Props);
 	SetVSync(_VSync);
+
+	glfwSetCursorPosCallback(gl_Window, [](GLFWwindow* _window, double _xPos, double _yPos)
+		{
+			WindowsWindowProps* WinProps = (WindowsWindowProps*)glfwGetWindowUserPointer(_window);
+			MouseMovedEvent E((int)_xPos, (int)_yPos);
+
+			WinProps->CallBackFunc(E);
+		});
 }
 
 Ruby::WindowsWindow::WindowsWindow(int& _Width, int& _Height, std::string& _Title, bool& _VSync)
@@ -62,6 +72,11 @@ void Ruby::WindowsWindow::Update()
 	glfwPollEvents();
 	//glfwSwapBuffers(gl_Window.get());
 	glfwSwapBuffers(gl_Window);
+}
+
+void Ruby::WindowsWindow::SetEventCallBack(std::function<void(Event& E)> CallBackFun)
+{
+	Props.CallBackFunc = CallBackFun;
 }
 
 void Ruby::WindowsWindow::SetVSync(bool _Enable)

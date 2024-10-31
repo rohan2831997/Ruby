@@ -2,6 +2,7 @@
 
 #include "core.h"
 #include "Window.h"
+#include "Event.h"
 #include "GLFW/glfw3.h"
 
 namespace Ruby
@@ -10,11 +11,15 @@ namespace Ruby
 	{
 		struct WindowsWindowProps
 		{
+			using EventCallBackFunc = std::function<void(Event& E)>;
+
 			int Width;
 			int Height;
 			std::string Title;
 
 			bool bVSync;
+
+			EventCallBackFunc CallBackFunc;
 		};
 
 	public:
@@ -24,9 +29,11 @@ namespace Ruby
 		~WindowsWindow() override;
 
 		void Update() override;
+
+		void SetEventCallBack(std::function<void(Event&)>) override;
 		
 		void SetVSync(bool _Enable) override;
-		bool IsVSync();
+		bool IsVSync() override;
 
 	private:
 		//std::unique_ptr<GLFWwindow, DestroyglfwWin> gl_Window;
